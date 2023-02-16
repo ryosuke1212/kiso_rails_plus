@@ -34,3 +34,8 @@ ja:
        login: 'ログイン'
        forget_password?: 'パスワードをお忘れの方'
        email: 'メールアドレス'
+     create:
+       success: 'ログインしました'
+       fail: 'ログインに失敗しました'
+     destroy:
+       success: 'ログアウトしました'
