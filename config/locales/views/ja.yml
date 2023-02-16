@@ -1,0 +1,36 @@
+ja:
+   defaults:
+     login: 'ログイン'
+     register: '登録'
+     logout: 'ログアウト'
+
+   users:
+     new:
+       title: 'ユーザー登録'
+       to_login_page: 'ログインページへ'
+       first_name: '名'
+       last_name: '姓'
+       password: 'パスワード'
+       password_confirmation: 'パスワード確認'
+       sign_up: '登録'
+       to_login_page: 'ログインページへ'
+       email: 'メールアドレス'
+
+     create:
+      success: 'ユーザー登録が完了しました'
+      fail: 'ユーザー登録に失敗しました'
+
+   user_sessions:
+     new:
+       title: 'ログイン'
+       to_login_page: 'ログインページへ'
+       first_name: '名'
+       last_name: '姓'
+       password: 'パスワード'
+       password_confirmation: 'パスワード確認'
+       to_register_page: '登録ページへ'
+       password_forget: 'パスワードをお忘れの方はこちら'
+       to_login_page: 'ログインページへ'
+       login: 'ログイン'
+       forget_password?: 'パスワードをお忘れの方'
+       email: 'メールアドレス'
