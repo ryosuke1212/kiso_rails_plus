@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
-  #before_action :require_login
+  add_flash_types :success, :info, :warning, :danger
+  before_action :require_login
+  
   private
+  
   def not_authenticated
-    redirect_to login_path, alert: "Please login first"
+    flash[:warning] = t('defaults.message.require_login')
+    redirect_to login_path
   end
 end

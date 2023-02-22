@@ -1,13 +1,6 @@
 class UsersController < ApplicationController
-  #skip_before_action :require_login, only: [:index, :new, :create] # this should only be used if you are allowing users to register themselves. 
+  skip_before_action :require_login, only: [:new, :create] # this should only be used if you are allowing users to register themselves. 
 
-  #def email:string
-  #end
-#
-  #def crypted_password:string
-  #end
-#
-  #def salt:string
   #end
   def index
     @users = User.all

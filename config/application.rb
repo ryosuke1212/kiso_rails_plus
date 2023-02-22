@@ -36,6 +36,9 @@ module RunteqNormal
     #以下の記述を追記する(設定必須)
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
 
+    config.time_zone = 'Tokyo'	
+    config.active_record.default_timezone = :local
+
     config.generators do |g|
       g.assets  false
       g.test_framework    false

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'static_pages#top'
   #root :to => 'users#index'
   resources :users
+  resources :boards
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'login' => "user_sessions#create"

@@ -3,6 +3,8 @@ ja:
      login: 'ログイン'
      register: '登録'
      logout: 'ログアウト'
+     message:
+      require_login: 'ログインしてください'
 
    users:
      new:
@@ -19,6 +21,13 @@ ja:
      create:
       success: 'ユーザー登録が完了しました'
       fail: 'ユーザー登録に失敗しました'
+
+   boards:
+     index:
+       title: '掲示板一覧'
+       no_result: '掲示板がありません。'
+     new:
+       title: '掲示板作成'
 
    user_sessions:
      new:
