@@ -9,5 +9,12 @@
     <%= f.text_area :body, class: 'form-control', rows: 10 %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :board_image, "サムネイル" %>
+    <%= f.file_field :board_image, onchange: 'previewImage()', class: 'form-control' %>
+    <%= f.hidden_field :board_image_cache %>
+    <%#= image_tag board.board_image.url, class: 'card-img-top', id: 'preview', size: '300x200' %>
+  </div>
+
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
