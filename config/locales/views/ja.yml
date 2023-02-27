@@ -3,6 +3,7 @@ ja:
      login: 'ログイン'
      register: '登録'
      logout: 'ログアウト'
+     post: '投稿'
      message:
       require_login: 'ログインしてください'
 
@@ -31,6 +32,13 @@ ja:
      create:
        success: '掲示板を作成しました'
        fail: '掲示板を作成できませんでした'
+     show:
+      title: '掲示板詳細'
+    
+   comments:
+     create:
+       success: 'コメントを作成しました'
+       fail: 'コメントを作成できませんでした'
 
    user_sessions:
      new:

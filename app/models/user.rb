@@ -2,6 +2,7 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
 
   has_many :boards, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -14,4 +15,8 @@ class User < ApplicationRecord
   validates :first_name, length: { maximum: 255 }
   validates :last_name, presence: true
   validates :last_name, length: { maximum: 255 }
+
+  def own?(object)
+    id == object.user_id
+  end
 end
