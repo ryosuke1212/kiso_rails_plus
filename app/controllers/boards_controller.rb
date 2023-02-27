@@ -1,11 +1,13 @@
 class BoardsController < ApplicationController
+  before_action :set_board, only: %i[show edit update destroy]
+  
   def index
     @boards = Board.all.includes(:user).order(created_at: :desc)
   end
 
   def show
-    @board = Board.find(params[:id])
-    @comments = Comment.all.includes(:board).order(created_at: :desc)
+    #@board = Board.find(params[:id])
+    @comments = @board.comments.includes(:user).order(created_at: :desc)
   end
 
   def new
@@ -24,9 +26,34 @@ class BoardsController < ApplicationController
     end
   end
 
+  def edit
+    #@board = Board.find(params[:id])
+  end
+
+  def update
+    #@board = Board.find(params[:id])
+    if @board.update(board_params)
+      redirect_to(@board, success: t('.success', item: Board.model_name.human))
+    else
+      flash.now[:danger] = t('.fail', item: Board.model_name.human)
+      render "edit"
+    end
+  end
+
+  def destroy
+    #@board = Board.find(params[:id])
+    @board.destroy!
+    redirect_to(boards_path,flash:{success: t('.success')})
+  end
+
   private
 
   def board_params
     params.require(:board).permit(:title, :body, :board_image, :board_image_cache)
   end
+
+  def set_board
+    @board = current_user.boards.find(params[:id])
+  end
+
 end
