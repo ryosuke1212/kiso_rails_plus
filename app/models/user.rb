@@ -35,7 +35,7 @@ class User < ApplicationRecord
 
   # 引数のboardのidをもつ、レコードを削除してください
   def unbookmark(board)
-    bookmark_boards.destroy!(board)
+    bookmark_boards.destroy(board)
   end
 
 end
