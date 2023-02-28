@@ -42,12 +42,21 @@ ja:
       fail: '掲示板を更新できませんでした'
      destroy:
       success: '掲示板を削除しました'
+     bookmarks:
+       title: 'ブックマーク一覧'
+       no_result: 'ブックマーク中の掲示板がありません'
     
    comments:
      create:
        success: 'コメントを作成しました'
        fail: 'コメントを作成できませんでした'
 
+   bookmarks:
+     create:
+       success: 'ブックマークしました'
+     destroy:
+       success: 'ブックマークを外しました'
+       
    user_sessions:
      new:
        title: 'ログイン'

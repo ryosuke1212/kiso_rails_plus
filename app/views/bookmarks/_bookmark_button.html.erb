@@ -1,0 +1,7 @@
+<% if current_user.bookmark?(board)  %>
+  <%# bookmarkしていれば、ブックマークしているボタンのとこへ %>
+  <%= render 'bookmarks/unbookmark', board: board %>
+<% else  %>
+  <%# bookmarkしていなければ、ブックマークしていないボタンのとこへ %>
+  <%= render 'bookmarks/bookmark', board: board %>
+<% end %>

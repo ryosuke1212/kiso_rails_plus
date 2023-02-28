@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   has_many :boards, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_boards, through: :bookmarks, source: :board
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -19,4 +21,21 @@ class User < ApplicationRecord
   def own?(object)
     id == object.user_id
   end
+
+  # 引数に渡されたboardがブックマークされているか？
+  def bookmark?(object)
+    bookmark_boards.include?(object)
+  end
+
+  # board_idを入れてブックマークしてください
+  def bookmark(board)
+    # current_userがブックマークしているboardの配列にboardを入れる
+    bookmark_boards << board
+  end
+
+  # 引数のboardのidをもつ、レコードを削除してください
+  def unbookmark(board)
+    bookmark_boards.destroy!(board)
+  end
+
 end

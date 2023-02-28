@@ -42,8 +42,14 @@ class BoardsController < ApplicationController
 
   def destroy
     #@board = Board.find(params[:id])
+    binding.pry
     @board.destroy!
     redirect_to(boards_path,flash:{success: t('.success')})
+  end
+
+  def bookmarks
+    @boards = current_user.bookmark_boards.includes(:user).order(created_at: :desc)
+    #@boards = current_user.bookmarks.includes(:user).order(created_at: :desc)
   end
 
   private
