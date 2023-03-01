@@ -31,5 +31,11 @@
   <%= render "comments/form", { board: @board }%>
 
   <!-- コメントエリア -->
-  <%= render partial: "comments/comment", collection: @comments %>
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <table id="js-table-comment" class="table">
+        <%= render partial: "comments/comment", collection: @comments %>
+      </table>
+    </div>
+  </div>
 </div>

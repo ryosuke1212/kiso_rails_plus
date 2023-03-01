@@ -1,12 +1,12 @@
 class BoardsController < ApplicationController
-  before_action :set_board, only: %i[show edit update destroy]
+  before_action :set_board, only: %i[edit update destroy]
   
   def index
     @boards = Board.all.includes(:user).order(created_at: :desc)
   end
 
   def show
-    #@board = Board.find(params[:id])
+    @board = Board.find(params[:id])
     @comments = @board.comments.includes(:user).order(created_at: :desc)
   end
 
@@ -42,7 +42,6 @@ class BoardsController < ApplicationController
 
   def destroy
     #@board = Board.find(params[:id])
-    binding.pry
     @board.destroy!
     redirect_to(boards_path,flash:{success: t('.success')})
   end

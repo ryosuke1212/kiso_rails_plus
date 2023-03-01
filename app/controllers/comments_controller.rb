@@ -3,12 +3,12 @@ class CommentsController < ApplicationController
     @board = Board.find(params[:board_id])
     @comment = current_user.comments.build(comment_params)
     @comment.board_id = @board.id
-    if @comment.save
-      redirect_to(board_path(@comment.board), flash:{success: t('.success')})
-    else
-      #flash.now[:danger] = t('.fail')
-      redirect_to(board_path(@comment.board), flash:{danger: t('.fail')})
-    end
+    @comment.save
+  end
+
+  def destroy
+    @comment = current_user.comments.find(params[:comment_id])
+    @comment.destroy!
   end
 
   private
