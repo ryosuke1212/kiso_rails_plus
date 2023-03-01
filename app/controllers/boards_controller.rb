@@ -2,7 +2,8 @@ class BoardsController < ApplicationController
   before_action :set_board, only: %i[edit update destroy]
   
   def index
-    @boards = Board.all.includes(:user).order(created_at: :desc)
+    @boards = Board.all.includes(:user).order(created_at: :desc).page(params[:page])
+    #@boards = Kaminari.paginate_array(@boards).page(params[:page])
   end
 
   def show
@@ -47,7 +48,7 @@ class BoardsController < ApplicationController
   end
 
   def bookmarks
-    @boards = current_user.bookmark_boards.includes(:user).order(created_at: :desc)
+    @boards = current_user.bookmark_boards.includes(:user).order(created_at: :desc).page(params[:page])
     #@boards = current_user.bookmarks.includes(:user).order(created_at: :desc)
   end
 
