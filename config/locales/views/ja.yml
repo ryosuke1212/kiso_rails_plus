@@ -4,10 +4,13 @@ ja:
      register: '登録'
      logout: 'ログアウト'
      post: '投稿'
-     serach_word: '検索ワード'
+     search_word: '検索ワード'
+     edit: '編集'
      message:
       require_login: 'ログインしてください'
       delete_confirm: '削除しますか？'
+      updated: 'ユーザーを更新しました'
+      not_updated: 'ユーザーを更新できませんでした'
 
    users:
      new:
@@ -77,3 +80,11 @@ ja:
        fail: 'ログインに失敗しました'
      destroy:
        success: 'ログアウトしました'
+
+   profiles:
+     show:
+       title: 'プロフィール'
+       full_name: '氏名'
+       avatar: 'アバター'
+     edit:
+       title: 'プロフィール編集'

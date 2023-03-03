@@ -57,7 +57,6 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    binding.pry
     params.require(:board).permit(:title, :body, :board_image, :board_image_cache)
   end
 

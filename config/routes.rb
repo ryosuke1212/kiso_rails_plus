@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :comments, shallow: true
     resource :bookmarks, only: %i[create destroy]
   end
-
+  resource :profile, only: %i[show edit update]
   get 'login' => 'user_sessions#new', :as => :login
   post 'login' => "user_sessions#create"
   delete 'logout' => 'user_sessions#destroy', :as => :logout
