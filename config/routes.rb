@@ -10,6 +10,14 @@ Rails.application.routes.draw do
     resources :comments, shallow: true
     resource :bookmarks, only: %i[create destroy]
   end
+
+  namespace :admin do
+    root to: 'dashboards#index'
+    get 'login', to: 'user_sessions#new'
+    post 'login', to: 'user_sessions#create'
+    delete 'logout', to: 'user_sessions#destroy'
+  end
+  
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
   get 'login' => 'user_sessions#new', :as => :login

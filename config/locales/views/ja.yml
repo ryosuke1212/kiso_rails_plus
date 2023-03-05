@@ -88,3 +88,16 @@ ja:
        avatar: 'アバター'
      edit:
        title: 'プロフィール編集'
+
+   admin:
+     user_sessions:
+       new:
+         title: 'ログイン'
+       create:
+         success: 'ログインしました'
+         fail: 'ログインに失敗しました'
+       destroy:
+         success: 'ログアウトしました'
+     dashboards:
+       index:
+         title: 'ダッシュボード'
