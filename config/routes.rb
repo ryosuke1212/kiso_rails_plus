@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :users, only: %i[index edit update show destroy]
+    resources :boards, only: %i[index edit update show destroy]
     root to: 'dashboards#index'
     get 'login', to: 'user_sessions#new'
     post 'login', to: 'user_sessions#create'
